@@ -1,77 +1,95 @@
-# #:import Factory kivy.factory.Factory
+#:import Factory kivy.factory.Factory
 
-# <MyLayout>
-#     name: 'main_page'
-#     BoxLayout:
-#         orientation: 'vertical'
-#         size: root.width, root.height
-        # Label:
-        #     id: label_1
-        #     text: 'random text'
-        #     font_size: 20
-#         Button:
-#             text: 'Press Me'
-#             on_release: root.btn()
+<MyLayout>
+    name: 'main_page'
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+        Label:
+            id: label_1
+            text: 'random text'
+            font_size: 20
+        Button:
+            text: 'Press Me'
+            on_release: root.btn()
 
-# <P>
+<P>
+    BoxLayout:
+        orientation: 'vertical'
+        pos_hint: {"x":0, "top":1}
+        Label:
+            text: 'You pressed the button'
+            size_hint: 1, 1
+        TextInput:
+            valign: 'middle'
+            halign: 'center'
+            id: input_1
+            font_size: 20
+        Button:
+            text: 'Press the button!'
+            size_hint: 1, 1
+            on_release: 
+                app.root.ids.label_1.text = input_1.text
+                print(input_1.text)
+                # root.dismiss()
+                # root.press_button()
+            # on_release: root.dismiss()
+            # pos_hint: {"x":0.1, "y":0.1}
+
+# :import F kivy.factory.Factory
+
+# <PopText>:
+#     # text_input: text_input
+#     size_hint: .7, .3
+#     title: "Input Text"
 #     BoxLayout:
 #         orientation: 'vertical'
 #         pos_hint: {"x":0, "top":1}
-#         Label:
-#             text: 'You pressed the button'
-#             size_hint: 1, 1
 #         TextInput:
-#             valign: 'middle'
-#             halign: 'center'
-#             id: input_1
-#             font_size: 20
+#             # id: text_input
+#             focus: True
+#             multiline: False
+#             # on_release:
+#                 # app.root.lbl_top.my_lbl.text = self.text
+#             # on_text_validate:
+#                 # app.root.lbl_top.my_lbl.text = self.text
+#                 # app.root.btn_bottom.my_btn.text = self.text
+#                 # print(self.text)
+#                 # root.dismiss()
 #         Button:
-#             text: 'Press the button!'
-#             size_hint: 1, 1
-#             on_release: root.press_button()
-#             # on_release: root.dismiss()
-#             # pos_hint: {"x":0.1, "y":0.1}
+#             text: "Press the button!"
+#             on_release: 
+#                 root.label_overwrite()
+#                 # app.root.lbl_top.my_lbl.text = self.text_input.text
+#                 # print(self.text)
+#                 root.dismiss()
+# <MyLabel>:
+#     my_lbl: my_lb
+#     anchor_y: "top"
+#     anchor_x: "right"
 
-#:import F kivy.factory.Factory
+#     Label:
+#         id: my_lb
+#         text: "Random Text"
 
-<PopText>:
-    size_hint: .7, .3
-    title: "Input Text"
+# <MyButton>:
+#     my_btn: my_bt
+#     anchor_y: "top"
+#     anchor_x: "right"
 
-    TextInput:
-        focus: True
-        multiline: False
-        on_text_validate:
-            app.root.lbl_top.my_lbl.text = self.text
-            # app.root.btn_bottom.my_btn.text = self.text
-            root.dismiss()
-<MyLabel>:
-    my_lbl: my_lb
-    anchor_y: "top"
-    anchor_x: "right"
-
-    Label:
-        id: my_lb
-        text: "Random Text"
-
-<MyButton>:
-    my_btn: my_bt
-    anchor_y: "top"
-    anchor_x: "right"
-
-    Button:
-        id: my_bt
-        text: "Input Text"
-        on_release: F.PopText().open()
+#     Button:
+#         id: my_bt
+#         text: "Input Text"
+#         on_release: F.PopText().open()
 
 
-<MainWidget>:
-    lbl_top: lbl_top
-    btn_bottom: btn_bottom
-    cols: 1
-    rows: 2
+# <MainWidget>:
+#     lbl_top: lbl_top
+#     btn_bottom: btn_bottom
+#     cols: 1
+#     rows: 2
 
-    MyLabel:
-        id: lbl_top
-    MyButton:
-        id: btn_bottom
+#     MyLabel:
+#         id: lbl_top
+#     MyButton:
+#         id: btn_bottom
