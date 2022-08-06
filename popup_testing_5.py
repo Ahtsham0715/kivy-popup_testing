@@ -14,7 +14,7 @@ class MyLayout(Widget):
     def btn():
         show_popup()
 
-    def label_overwrite( overwrite):
+    def label_overwrite( self,overwrite):
         print(f'text: {overwrite}')
         
 
