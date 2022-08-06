@@ -1,7 +1,7 @@
 #:import Factory kivy.factory.Factory
 
 
-<P>
+<P@Popup>
     title: 'Popup Window_test'
     BoxLayout:
         orientation: 'vertical'
@@ -20,7 +20,7 @@
             on_release: 
                 app.root.ids.label_1.text = input_1.text
                 # print(input_1.text)
-                app.root.label_overwrite(input_1.text)
+                root.press_button()
                 # root.dismiss()
             # pos_hint: {"x":0.1, "y":0.1}
 

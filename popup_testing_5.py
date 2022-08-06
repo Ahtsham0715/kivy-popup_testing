@@ -14,8 +14,8 @@ class MyLayout(Widget):
     def btn():
         show_popup()
 
-    def label_overwrite( self,overwrite):
-        print(f'text: {overwrite}')
+    # def label_overwrite(self,overwrite):
+    #     print(f'text: {overwrite}')
         
 
 class P(FloatLayout):
@@ -23,7 +23,8 @@ class P(FloatLayout):
     def press_button(self):
         print('Button pressed')
         text = self.ids.input_1.text
-        MyLayout.label_overwrite(text)
+        print(text)
+        # MyLayout.label_overwrite(self,text)
 
 class MyApp(App):
     def build(self):
@@ -36,6 +37,3 @@ def show_popup():
 
 if __name__ == '__main__':
     MyApp().run()
-
-
-#//))(())\\// my..contact.. /// ]]] *** 03496171043

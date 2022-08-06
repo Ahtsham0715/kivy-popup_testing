@@ -1,0 +1,42 @@
+#:import Factory kivy.factory.Factory
+<MyPopup@Popup>
+    auto_dismiss: False
+    size_hint: 0.7, 0.5
+    pos_hint: {'center': 0, 'top': .8}
+    title: 'This is a popup box'
+    valign: 'middle'
+    BoxLayout:
+        size: root.width, root.height
+        orientation: 'vertical'
+        Label:
+            text: 'Something is in our popup Box!'
+            font_size: 24
+        TextInput:
+            id: text_input
+            text: ''
+            font_size: 20
+            halign: 'center'
+        Button:
+            text: 'Close Me!'
+            font_size: 24
+            # on_press: root.text_extraction()
+            on_release:
+                app.root.ids.label_1.text = text_input.text
+                app.my_popup.run_function()
+                root.dismiss()
+
+<MyLayout>
+
+    BoxLayout:
+        size: root.width, root.height
+        orientation: 'vertical'
+
+        Label:
+            id: label_1
+            text: 'Popup Stuff'
+            font_size: 32
+
+        Button:
+            text: 'Popup'
+            font_size: 32
+            on_release: Factory.MyPopup().open()
