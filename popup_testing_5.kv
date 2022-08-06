@@ -1,0 +1,38 @@
+#:import Factory kivy.factory.Factory
+
+
+<P>
+    title: 'Popup Window_test'
+    BoxLayout:
+        orientation: 'vertical'
+        pos_hint: {"x":0, "top":1}
+        Label:
+            text: 'You pressed the button'
+            size_hint: 1, 1
+        TextInput:
+            valign: 'middle'
+            halign: 'center'
+            id: input_1
+            font_size: 20
+        Button:
+            text: 'Press the button!'
+            size_hint: 1, 1
+            on_release: 
+                app.root.ids.label_1.text = input_1.text
+                # print(input_1.text)
+                root.press_button()
+                # root.dismiss()
+            # pos_hint: {"x":0.1, "y":0.1}
+
+<MyLayout>
+    name: 'main_page'
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+        Label:
+            id: label_1
+            text: 'random text'
+            font_size: 20
+        Button:
+            text: 'Press Me'
+            on_release: root.btn()
